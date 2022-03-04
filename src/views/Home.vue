@@ -1,7 +1,16 @@
-<script setup>
+<script>
 import WelcomeItem from "../components/WelcomeItem.vue";
 import Title from "../components/Title.vue";
 import Subtitle from "../components/Subtitle.vue";
+
+export default {
+  components: {
+    WelcomeItem,
+    Title,
+    Subtitle
+  }
+}
+
 </script>
 
 <template>

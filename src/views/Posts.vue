@@ -5,7 +5,7 @@ import Card from "../components/Card.vue";
 
 export default {
   components: { Title, Card },
-  //retornar atributos do componente
+  
   data() {
     return {
       posts: [],

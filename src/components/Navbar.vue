@@ -1,14 +1,19 @@
+<script>
+import { RouterLink } from 'vue-router'
+</script>
+
+
 <template>
 <div class="navbar-fixed">
     <nav>
     <div class="nav-wrapper grey darken-4">
-      <a href="#" class="brand-logo md-48">
+       <router-link to="/" class="brand-logo md-48">
         <span class="material-icons">home</span>
-      </a>
+       </router-link>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">New Post</a></li>
-        <li><a href="#">Last Posts</a></li>        
+        <li><router-link to="/posts"> Posts </router-link></li>
+        <li><router-link to="/todo"> ToDo </router-link></li>
+        <li><router-link to="/newpost"> NewPost </router-link></li>     
       </ul>
     </div>
   </nav>

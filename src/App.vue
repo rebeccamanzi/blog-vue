@@ -1,8 +1,5 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
-import Welcome from './views/Welcome.vue'
-import Posts from './views/Posts.vue'
-
 </script>
 
 <template>
@@ -11,10 +8,7 @@ import Posts from './views/Posts.vue'
       <Navbar />
     </header>
 
-    <main>
-      <Welcome />
-      <Posts />
-    </main>
+   <RouterView />
   </div>
 </template>
 
