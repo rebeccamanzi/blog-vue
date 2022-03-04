@@ -1,40 +1,31 @@
-<template>
-    <h1>
-        Last Posts
-    </h1>
-
-    <tbody>
-        <tr v-for="post of posts" :key="post.id">
-            <td> {{post.title}} </td>
-            <td> {{post.body}} </td>
-            
-        </tr>
-    </tbody>
-
-</template>
-
-
 <script>
-import Title from '../components/Title.vue'
-import Posts from '../services/posts'
+import Title from "../components/Title.vue";
+import Posts from "../services/posts";
+import Card from "../components/Card.vue";
 
 export default {
+  components: { Title, Card },
+  //retornar atributos do componente
+  data() {
+    return {
+      posts: [],
+    };
+  },
 
-    //retornar atributos do componente
-    data(){
-        return {
-            posts: []
-        }
-    },
-
-    mounted(){
-        Posts.list().then(response => {
-            console.log(response.data)
-            this.posts = response.data
-        })
-    }
-
-}
-
+  mounted() {
+    Posts.list().then((response) => {
+      console.log(response.data);
+      this.posts = response.data;
+    });
+  },
+};
 </script>
+
+<template>
+  <Title title="Last Posts" />
+
+  <div v-for="post in posts" :key="post.id" class="container">
+     <Card :title="post.title" :body="post.body"/>
+  </div>
+</template>
 
