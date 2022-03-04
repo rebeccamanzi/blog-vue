@@ -9,11 +9,11 @@ import Subtitle from './Subtitle.vue'
   <Subtitle subtitle="what do you want to do?" />
     <div class="container">
       <div class="row">
-        <WelcomeItem item="Create a new user" href="www.google.com" />
-        <WelcomeItem item="Update your status" />
-        <WelcomeItem item="Create a new post" />
-        <WelcomeItem item="See all posts" />
-        <WelcomeItem item="Create a to-do list" />  
+        <WelcomeItem item="Create a new user" href="#" />
+        <WelcomeItem item="Update your status" href="#"/>
+        <WelcomeItem item="Create a new post" href="#"/>
+        <WelcomeItem item="See all posts" href="#"/>
+        <WelcomeItem item="Create a to-do list" href="#"/>  
       </div>
     </div>
 </template>
