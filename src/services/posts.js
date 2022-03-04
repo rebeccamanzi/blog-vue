@@ -1,9 +1,9 @@
-import { http } from './config'
+import { instance } from './config'
 
 export default {
 
     list:() => {
-        return http.get('posts')
+        return instance.get('posts')
     }
 
 }
