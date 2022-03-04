@@ -1,6 +1,8 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
-import Welcome from './components/Welcome.vue'
+import Welcome from './views/Welcome.vue'
+import Posts from './views/Posts.vue'
+
 </script>
 
 <template>
@@ -11,6 +13,7 @@ import Welcome from './components/Welcome.vue'
 
     <main>
       <Welcome />
+      <Posts />
     </main>
   </div>
 </template>
