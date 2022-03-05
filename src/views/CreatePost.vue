@@ -33,8 +33,8 @@
       <Button
         value="Submit"
         @click="
-          create();
           getUserId(user.email);
+          validUserStatus(user)
         "
       />
     </form>
@@ -76,8 +76,9 @@ export default {
 
   methods: {
     getUserId(email) {
-      const userInfo = this.users.filter((u) => u.email == email)
+      const userInfo = this.users.filter((u) => u.email == email);
       this.post.user_id = userInfo[0].id;
+      this.user.status = userInfo[0].status;
       // create error exception if the e-mail is not saved at api
     },
 
@@ -86,6 +87,14 @@ export default {
         alert("Post created successfully!");
       });
     },
+
+    validUserStatus(user) {
+      if (user.status == "inactive") {
+        alert("You cant create a post because your status is inactive.");
+      } else {
+        this.create()
+      }
+    }
   },
 };
 </script>
