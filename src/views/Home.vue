@@ -19,7 +19,7 @@ export default {
   <div class="container">
     <div class="row">
       <WelcomeItem item="Create a new user" href="/createuser" />
-      <WelcomeItem item="Update your status" href="#" />
+      <WelcomeItem item="Update your status" href="/updatestatus" />
       <WelcomeItem item="Create a new post" href="/createpost" />
       <WelcomeItem item="See all posts" href="/posts" />
       <WelcomeItem item="Create a to-do list" href="#" />
