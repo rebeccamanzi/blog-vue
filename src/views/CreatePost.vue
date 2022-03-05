@@ -70,7 +70,6 @@ export default {
 
   mounted() {
     Users.list().then((response) => {
-      console.log(response.data);
       this.users = response.data;
     });
   },

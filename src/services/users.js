@@ -9,4 +9,8 @@ export default {
     list:() => {
         return instance.get('users')
     },
+
+    update:(user) => {
+        return instance.patch(`users/${user.id}`, user)
+    }
 }
