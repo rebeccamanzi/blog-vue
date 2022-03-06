@@ -61,7 +61,7 @@ export default {
   </div>
 
   <div v-for="post in posts" :key="post.id" class="container">
-    <Card :title="post.title" :body="post.body" :comments="1" />
+    <Card :title="post.title" :body="post.body" :comments="1" :postId="post.id"/>
   </div>
 
 </template>

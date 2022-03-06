@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['title', 'body', 'comments']
+  props: ['title', 'body', 'postId', 'comments']
 }
 </script>
 
@@ -15,7 +15,8 @@ export default {
           </p>
         </div>
         <div class="card-action">
-          <a href="#">See More</a>
+          <!-- :href="'/postDetails/' + postId"  -->
+          <a :href="'/postDetails/' + postId" >See More from {{ postId }}</a>
           <a> {{ comments }} Comments</a>
         </div>
       </div>
