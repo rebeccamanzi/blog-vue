@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['title', 'body']
+  props: ['title', 'body', 'comments']
 }
 </script>
 
@@ -16,7 +16,7 @@ export default {
         </div>
         <div class="card-action">
           <a href="#">See More</a>
-          <a href="#">Comments</a>
+          <a> {{ comments }} Comments</a>
         </div>
       </div>
     </div>

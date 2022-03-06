@@ -9,6 +9,8 @@
   "dependencies": {
     "axios": "^0.26.0",
     "dotenv": "^16.0.0",
+    "jw-vue-pagination": "^1.0.3",
+    "v-pagination-3": "^0.1.7",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13"
   },
