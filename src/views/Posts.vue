@@ -6,7 +6,6 @@ import Button from "../components/Button.vue";
 
 export default {
   components: { Title, Card, Button },
-  //retornar atributos do componente
   data() {
     return {
       posts: [],

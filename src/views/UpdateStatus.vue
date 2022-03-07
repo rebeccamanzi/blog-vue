@@ -57,8 +57,6 @@ export default {
     getUserId(email) {
       const userInfo = this.users.filter((u) => u.email == email)
       this.user.id = userInfo[0].id;
-
-      // create error exception if the e-mail is not saved at api
     },
 
     update(user) {

@@ -2,9 +2,9 @@ import { instance } from './config'
 
 export default {
 
-    // create:(user) => {
-    //     return instance.post('users', user)
-    // },
+    create:(comment) => {
+        return instance.post('comments', comment)
+    },
 
     list:() => {
         return instance.get('comments')
