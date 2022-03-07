@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="col s12 m4" >
-    <a class="welcome-items waves-effect waves-light btn-large grey lighten-2 black-text" :href="href" > 
+    <a class="welcome-items waves-effect waves-light deep-purple btn-large white-text black-text" :href="href" > 
       {{ item }}
     </a>
   </div>

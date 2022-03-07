@@ -5,19 +5,19 @@ export default {
   props: ["userName", "userEmail", "body"],
 
   data() {
-      return {
-          users: [],
-          userStatus: ''
-      }
+    return {
+      users: [],
+      userStatus: "",
+    };
   },
 
   methods: {
-     getUserInfo(userEmail) {
+    getUserInfo(userEmail) {
       const userInfo = this.users.filter((u) => u.email == userEmail);
       if (userInfo.length == 0) {
-          return;
+        return;
       } else {
-          this.userStatus = userInfo[0].status;
+        this.userStatus = userInfo[0].status;
       }
     },
   },
@@ -26,12 +26,10 @@ export default {
     Users.list().then((response) => {
       this.users = response.data;
 
-      this.getUserInfo(this.userEmail)
+      this.getUserInfo(this.userEmail);
     });
-  }
+  },
 };
-
-
 </script>
 
 <template>
@@ -39,13 +37,21 @@ export default {
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <p class="body">
-            {{ body }}
-          </p>
-          <p>
-            <span class="blue-text text-darken-2">{{ userName }} </span> |
-            {{ userEmail }}  <span class="status"> {{ userStatus == 'inactive'? `(${userStatus})` : ''}} </span>
-          </p>
+          <div class="body">
+            <p>
+              <span class="deep-purple-text text-darken-2 name"
+                >{{ userName }} </span
+              >:
+              {{ body }}
+            </p>
+          </div>
+          
+          <div>
+            <span class="material-icons email">email</span> {{ userEmail }}
+            <span class="status">
+              {{ userStatus == "inactive" ? `(${userStatus})` : "" }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -53,15 +59,23 @@ export default {
 </template>
 
 <style>
-p.body {
+.body {
   font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-weight: 600;
 }
 
 .status {
-    font-style: italic;
-    color: grey;
-    font-size: 0.8rem;
+  font-style: italic;
+  color: grey;
+  font-size: 0.8rem;
+}
 
+.email {
+  font-size: 0.8rem;
 }
 </style>
 

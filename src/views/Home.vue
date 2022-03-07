@@ -16,13 +16,12 @@ export default {
 <template>
   <Title title="Welcome to your favorite Blog :)" />
   <Subtitle subtitle="what do you want to do?" />
-  <div class="container">
-    <div class="row">
+  <div class="container center">
+    <div>
       <WelcomeItem item="Create a new user" href="/createuser" />
       <WelcomeItem item="Update your status" href="/updatestatus" />
       <WelcomeItem item="Create a new post" href="/createpost" />
       <WelcomeItem item="See all posts" href="/posts" />
-      <WelcomeItem item="Create a to-do list" href="#" />
     </div>
   </div>
 </template>

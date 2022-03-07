@@ -78,11 +78,11 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <Title :title="post.title" />
-    <p>{{ post.body }}</p>
+  <div class="container" >
+    <Title :title="post.title" style="margin-top: 4rem; text-align: left"/>
+    <p style="font-size: 1.5rem;">{{ post.body }}</p>
 
-    <p>Comments:</p>
+    <p class="deep-purple-text " style="padding: 1rem 0">Comments:</p>
 
     <div v-for="comment in comments" :key="comment.id">
       <div v-if="comment.post_id == this.post.id">

@@ -7,16 +7,15 @@ export default {
 <template>
   <div class="row">
     <div class="col s4 m12">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"> {{ title }} </span>
+      <div class="card darken-1">
+        <div class="card-content ">
+          <span class="card-title deep-purple-text"> {{ title }} </span>
           <p>
             {{ body }}
           </p>
         </div>
-        <div class="card-action">
-          <!-- :href="'/postDetails/' + postId"  -->
-          <a :href="'/postDetails/' + postId" >See More</a>
+        <div class="card-action deep-purple">
+          <a class="white-text" :href="'/postDetails/' + postId" >See More</a>
         </div>
       </div>
     </div>
