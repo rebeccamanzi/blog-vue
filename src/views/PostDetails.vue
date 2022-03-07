@@ -61,7 +61,7 @@ export default {
         alert("You cant create a comment because your status is inactive.");
         this.$router.go();
       }
-    },    
+    },
   },
 
   mounted() {
@@ -127,7 +127,13 @@ export default {
           v-model="comment.body"
         />
       </div>
-      <Button value="Comment" @click="getUserInfo(comment.email); createComment()" />
+      <Button
+        value="Comment"
+        @click="
+          getUserInfo(comment.email);
+          createComment();
+        "
+      />
     </form>
   </div>
 </template>
