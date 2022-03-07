@@ -50,7 +50,6 @@ import Button from "../components/Button.vue";
 export default {
   components: { Title, Button },
 
-  // valor inicial das variáveis (estado)
   data() {
     return {
       users: [],

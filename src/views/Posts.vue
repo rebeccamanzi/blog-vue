@@ -17,7 +17,6 @@ export default {
   methods: {
     list() {
       Posts.list(this.page).then((response) => {
-        console.log(response.data);
         this.posts = response.data;
       });
     },
@@ -61,7 +60,7 @@ export default {
   </div>
 
   <div v-for="post in posts" :key="post.id" class="container">
-    <Card :title="post.title" :body="post.body" :comments="1" :postId="post.id"/>
+    <Card :title="post.title" :body="post.body" :postId="post.id"/>
   </div>
 
 </template>

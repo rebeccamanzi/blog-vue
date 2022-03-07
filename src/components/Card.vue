@@ -16,8 +16,7 @@ export default {
         </div>
         <div class="card-action">
           <!-- :href="'/postDetails/' + postId"  -->
-          <a :href="'/postDetails/' + postId" >See More from {{ postId }}</a>
-          <a> {{ comments }} Comments</a>
+          <a :href="'/postDetails/' + postId" >See More</a>
         </div>
       </div>
     </div>
