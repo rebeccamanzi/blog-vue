@@ -1,6 +1,5 @@
 <template>
   <Title title="Create User" />
-
   <div class="container">
     <form class="col s12">
       <div class="row">
@@ -42,7 +41,6 @@
       <Button value="Submit" @click="create" />
     </form>
   </div>
-
 </template>
 
 <script>
@@ -51,16 +49,17 @@ import Users from "../services/users.js";
 import Button from "../components/Button.vue";
 
 export default {
+  name: 'CreateUser',
   components: { Title, Button },
 
   data() {
     return {
       user: {
-          name:"",
-          email:"",
-          gender:"",
-          status:""
-        }
+        name: "",
+        email: "",
+        gender: "",
+        status: "",
+      },
     };
   },
 
@@ -68,6 +67,7 @@ export default {
     create() {
       Users.create(this.user).then((response) => {
         alert("User created successfully!");
+        this.$router.go();
       });
     },
   },

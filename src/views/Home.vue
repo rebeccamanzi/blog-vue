@@ -1,18 +1,3 @@
-<script>
-import WelcomeItem from "../components/WelcomeItem.vue";
-import Title from "../components/Title.vue";
-import Subtitle from "../components/Subtitle.vue";
-
-export default {
-  components: {
-    WelcomeItem,
-    Title,
-    Subtitle
-  }
-}
-
-</script>
-
 <template>
   <Title title="Welcome to your favorite Blog :)" />
   <Subtitle subtitle="what do you want to do?" />
@@ -25,4 +10,20 @@ export default {
     </div>
   </div>
 </template>
+
+<script>
+import WelcomeItem from "../components/WelcomeItem.vue";
+import Title from "../components/Title.vue";
+import Subtitle from "../components/Subtitle.vue";
+
+export default {
+  name: 'Home',
+  components: {
+    WelcomeItem,
+    Title,
+    Subtitle
+  }
+}
+
+</script>
 

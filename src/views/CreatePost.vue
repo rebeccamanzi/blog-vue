@@ -48,6 +48,7 @@ import Users from "../services/users.js";
 import Button from "../components/Button.vue";
 
 export default {
+  name: "CreatePost",
   components: { Title, Button },
 
   data() {
@@ -68,21 +69,34 @@ export default {
   },
 
   mounted() {
-    Users.list().then((response) => {
-      this.users = response.data;
-    });
+    this.getUsers();
   },
 
   methods: {
+    getUsers() {
+      Users.list().then((response) => {
+        this.users = response.data;
+      });
+    },
+
     getUserId(email) {
       const userInfo = this.users.filter((u) => u.email == email);
-      this.post.user_id = userInfo[0].id;
-      this.user.status = userInfo[0].status;
+      try {
+        this.post.user_id = userInfo[0].id;
+        this.user.status = userInfo[0].status;
+      } catch (e) {
+        if (e instanceof TypeError) {
+          alert("User does not exist.");
+          this.$router.go();
+        } else {
+          console.log(e);
+        }
+      }
     },
 
     create() {
       Posts.create(this.post).then((response) => {
-        alert("Post created successfully!");
+        this.$router.push("/posts");
       });
     },
 
