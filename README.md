@@ -76,4 +76,3 @@ $ npm start
 <h4  align="center">
 Made by <a  href="https://www.linkedin.com/in/rebeccamanzi"  target="_blank">Rebecca Manzi</a>
 </h4>
-
