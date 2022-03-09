@@ -38,7 +38,7 @@ export default {
   },
 
   methods: {
-    getUser() {
+    getUsers() {
       Users.list().then((response) => {
         this.users = response.data;
       }).catch(e => {
@@ -57,7 +57,7 @@ export default {
   },
 
   mounted() {
-    this.getUser();
+    this.getUsers();
     this.getUserInfo(this.userEmail);
   },
 };

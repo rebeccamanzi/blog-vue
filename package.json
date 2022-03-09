@@ -4,7 +4,8 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 5050"
+    "preview": "vite preview --port 5050",
+    "test": "vitest --dom"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -13,6 +14,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.4",
-    "vite": "^2.8.4"
+    "@vue/test-utils": "^2.0.0-rc.17",
+    "happy-dom": "^2.46.0",
+    "vite": "^2.8.4",
+    "vitest": "^0.6.0"
   }
 }

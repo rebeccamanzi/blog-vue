@@ -1,6 +1,6 @@
 <template>
   <div class="container-btn">
-    <a class="waves-effect waves-light btn deep-purple darken-4"> {{ value }} </a>
+    <a class="waves-effect waves-light btn deep-purple darken-4" > {{ value }} </a>
   </div>
 </template>
 
