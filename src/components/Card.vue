@@ -1,9 +1,3 @@
-<script>
-export default {
-  props: ['title', 'body', 'postId', 'comments']
-}
-</script>
-
 <template>
   <div class="row">
     <div class="col s4 m12">
@@ -22,3 +16,9 @@ export default {
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Card',
+  props: ['title', 'body', 'postId']
+}
+</script>

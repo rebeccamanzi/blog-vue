@@ -1,37 +1,3 @@
-<script>
-import Users from "../services/users.js";
-
-export default {
-  props: ["userName", "userEmail", "body"],
-
-  data() {
-    return {
-      users: [],
-      userStatus: "",
-    };
-  },
-
-  methods: {
-    getUserInfo(userEmail) {
-      const userInfo = this.users.filter((u) => u.email == userEmail);
-      if (userInfo.length == 0) {
-        return;
-      } else {
-        this.userStatus = userInfo[0].status;
-      }
-    },
-  },
-
-  mounted() {
-    Users.list().then((response) => {
-      this.users = response.data;
-
-      this.getUserInfo(this.userEmail);
-    });
-  },
-};
-</script>
-
 <template>
   <div class="col s12">
     <div class="card horizontal">
@@ -45,7 +11,7 @@ export default {
               {{ body }}
             </p>
           </div>
-          
+
           <div>
             <span class="material-icons email">email</span> {{ userEmail }}
             <span class="status">
@@ -58,7 +24,46 @@ export default {
   </div>
 </template>
 
-<style>
+<script>
+import Users from "../services/users.js";
+export default {
+  name: "CommentCard",
+  props: ["userName", "userEmail", "body"],
+
+  data() {
+    return {
+      users: [],
+      userStatus: "",
+    };
+  },
+
+  methods: {
+    getUser() {
+      Users.list().then((response) => {
+        this.users = response.data;
+      }).catch(e => {
+        console.log(e)
+      });
+    },
+
+    getUserInfo(userEmail) {
+      const userInfo = this.users.filter((u) => u.email == userEmail);
+      if (userInfo.length == 0) {
+        return;
+      } else {
+        this.userStatus = userInfo[0].status;
+      }
+    },
+  },
+
+  mounted() {
+    this.getUser();
+    this.getUserInfo(this.userEmail);
+  },
+};
+</script>
+
+<style scoped>
 .body {
   font-size: 1.2rem;
   margin-bottom: 1rem;

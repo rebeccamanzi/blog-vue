@@ -1,14 +1,15 @@
-<script>
-export default {
-  props: ['title']
-}
-</script>
-
 <template>
     <h2 class="title"> {{ title }} </h2>
 </template>
 
-<style>
+<script>
+export default {
+  name: 'Title',
+  props: ['title']
+}
+</script>
+
+<style scoped>
 .title {
     font-size: 3rem;
     text-align: center;

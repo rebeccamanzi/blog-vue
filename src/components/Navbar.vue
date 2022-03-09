@@ -1,8 +1,3 @@
-<script>
-import { RouterLink } from "vue-router";
-</script>
-
-
 <template>
   <div class="navbar-fixed">
     <nav>
@@ -23,7 +18,13 @@ import { RouterLink } from "vue-router";
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: "Navbar",
+};
+</script>
+
+<style scoped>
 .home {
   margin: 0rem 2rem;
 }

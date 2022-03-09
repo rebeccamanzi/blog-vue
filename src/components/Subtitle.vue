@@ -1,16 +1,17 @@
-<script>
-export default {
-  props: ['subtitle']
-}
-</script>
-
 <template>
-    <h2 class="subtitle"> {{ subtitle }} </h2>
+  <h2 class="subtitle">{{ subtitle }}</h2>
 </template>
 
-<style>
+<script>
+export default {
+  name: "Subtitle",
+  props: ["subtitle"],
+};
+</script>
+
+<style scoped>
 .subtitle {
-    font-size: 2rem;
-    text-align: center;
+  font-size: 2rem;
+  text-align: center;
 }
 </style>
