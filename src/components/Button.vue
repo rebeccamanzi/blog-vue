@@ -12,7 +12,7 @@ export default {
 <style scoped>
 
 a {
-  margin-top: 2rem;
+  margin: 2rem 0;
   min-width: 10rem;
 }
 
