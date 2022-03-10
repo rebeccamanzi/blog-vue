@@ -38,6 +38,24 @@
           </select>
         </div>
       </div>
+
+      <p class="validation" v-if="this.user.email !== '' && !this.validateEmail(this.user.email)">
+        Invalid Email 
+      </p>
+
+      <p class="validation" v-if="this.validation[0] !== ''">
+        {{ validation[0] }}
+      </p>
+      <p class="validation" v-if="this.validation.lenght !== 0">
+        {{ validation[1] }}
+      </p>
+      <p class="validation" v-if="this.validation.lenght !== 0">
+        {{ validation[2] }}
+      </p>
+      <p class="validation" v-if="this.validation.lenght !== 0">
+        {{ validation[3] }}
+      </p>
+
       <Button value="Submit" @click="create" />
     </form>
   </div>
@@ -49,7 +67,7 @@ import Users from "../services/users.js";
 import Button from "../components/Button.vue";
 
 export default {
-  name: 'CreateUser',
+  name: "CreateUser",
   components: { Title, Button },
 
   data() {
@@ -60,16 +78,59 @@ export default {
         gender: "",
         status: "",
       },
+      validation: [],
     };
   },
 
   methods: {
     create() {
-      Users.create(this.user).then((response) => {
-        alert("User created successfully!");
-        this.$router.go();
-      });
+      if (this.validateFields() && this.validateEmail() ) {
+        Users.create(this.user).then((response) => {
+          alert("User created successfully!");
+          this.$router.go();
+        });
+      } else {
+        console.log(this.validation);
+        alert("Please fill in the required fields.");
+      }
+    },
+
+    validateField(field, name) {
+      if (field == "") {
+        this.validation.push(`The ${name} cant not be empty.`);
+        return false;
+      } else return true;
+    },
+
+    validateFields() {
+      if (
+        this.validateField(this.user.name, "Name") &&
+        this.validateField(this.user.email, "Email") &&
+        this.validateField(this.user.gender, "Gender") &&
+        this.validateField(this.user.status, "Status")
+      ) {
+        return true;
+      } else {
+        this.validation = [];
+        this.validateField(this.user.name, "Name");
+        this.validateField(this.user.email, "Email");
+        this.validateField(this.user.gender, "Gender");
+        this.validateField(this.user.status, "Status");
+        return false;
+      }
+    },
+
+    validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
     },
   },
 };
 </script>
+
+<style scoped>
+.validation {
+  color: red;
+  margin: 0;
+}
+</style>

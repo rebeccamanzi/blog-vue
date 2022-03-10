@@ -33,9 +33,9 @@
         />
       </div>
       
+      <p class="validation" v-if="validation.lenght !== 0">{{ validation[0] }}</p>
       <p class="validation" v-if="validation.lenght !== 0">{{ validation[1] }}</p>
       <p class="validation" v-if="validation.lenght !== 0">{{ validation[2] }}</p>
-      <p class="validation" v-if="validation.lenght !== 0">{{ validation[3] }}</p>
 
       <Button value="Submit" @click="create()" />
     </form>
@@ -72,7 +72,6 @@ export default {
 
   mounted() {
     this.getUsers();
-    console.log(this.validation)
   },
 
   methods: {
@@ -91,6 +90,7 @@ export default {
       ) {
         return true;
       } else {
+        this.validation = [];
         this.validateField(this.user.email, "Email");
         this.validateField(this.post.title, "Title");
         this.validateField(this.post.body, "Body");
