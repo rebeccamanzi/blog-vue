@@ -8,7 +8,6 @@
     "test": "vitest --dom"
   },
   "dependencies": {
-    "@vuelidate/core": "^2.0.0-alpha.34",
     "axios": "^0.26.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13"
