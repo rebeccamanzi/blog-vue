@@ -1,6 +1,6 @@
 # Welcome to your favorite Blog! :)
 
-## Index
+## ☕ Index
 
 - [About](#About)
 
@@ -11,7 +11,7 @@
 - [How to contribute](#hot-to-contribute)
 
 <a  id="About"></a>
-## About
+## 📃 About
 
 This is a website (Blog) that consumes [REST API](https://gorest.co.in). 
 
@@ -24,7 +24,7 @@ Here’s a quick overview of Blog's functions:
 - See all posts.
 
 <a  id="applied-technologies"></a>
-## Applied technologies
+## 🛠️ Applied technologies
 
 The project was developed using the following technologies:
 
@@ -32,9 +32,10 @@ The project was developed using the following technologies:
 - [Materialize](https://materializecss.com)
 - [Axios](https://axios-http.com)
 - [Vue Router](https://router.vuejs.org)
+- [Vitest](https://vitest.dev)
 
 <a  id="how-to-use"></a>
-## How to use
+## 🎮 How to use
 
 1. Cloning the application:
 
@@ -61,9 +62,14 @@ VITE_ACCESS_TOKEN=token
 ```sh
 $ npm start
 ```
+6. Run Tests
+
+```sh
+$ npm run test
+```
 
 <a  id="hot-to-contribute"></a>
-## How to contribute
+## 📮 How to contribute
 
 1. Fork code!
 2. Create your own branch: `git checkout -b feat/xxxx`
