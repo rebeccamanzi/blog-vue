@@ -1,7 +1,5 @@
 <template>
-  <div class="container-btn">
     <a class="waves-effect waves-light btn deep-purple darken-4" > {{ value }} </a>
-  </div>
 </template>
 
 <script>
@@ -12,13 +10,10 @@ export default {
 </script>
 
 <style scoped>
-.container-btn {
-    display: flex;
-    justify-content: center;
-    padding: 5rem;
+
+a {
+  margin-top: 2rem;
+  min-width: 10rem;
 }
 
-.container-btn a {
-    min-width: 10rem;
-}
 </style>

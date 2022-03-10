@@ -7,11 +7,12 @@
         <input
           placeholder="Email"
           id="email"
-          type="text"
+          type="email"
           class="validate"
           v-model="user.email"
         />
       </div>
+
       <div class="input-field col s6">
         <input
           placeholder="Title"
@@ -21,6 +22,7 @@
           v-model="post.title"
         />
       </div>
+
       <div class="input-field col s6">
         <input
           placeholder="Body"
@@ -30,13 +32,12 @@
           v-model="post.body"
         />
       </div>
-      <Button
-        value="Submit"
-        @click="
-          getUserId(user.email);
-          create();
-        "
-      />
+      
+      <p class="validation" v-if="validation.lenght !== 0">{{ validation[1] }}</p>
+      <p class="validation" v-if="validation.lenght !== 0">{{ validation[2] }}</p>
+      <p class="validation" v-if="validation.lenght !== 0">{{ validation[3] }}</p>
+
+      <Button value="Submit" @click="create()" />
     </form>
   </div>
 </template>
@@ -65,14 +66,38 @@ export default {
         title: "",
         body: "",
       },
+      validation: [],
     };
   },
 
   mounted() {
     this.getUsers();
+    console.log(this.validation)
   },
 
   methods: {
+    validateField(field, name) {
+      if (field == "") {
+        this.validation.push(`The ${name} cant not be empty.`);
+        return false;
+      } else return true;
+    },
+
+    validateFields() {
+      if (
+        this.validateField(this.user.email, "Email") &&
+        this.validateField(this.post.title, "Title") &&
+        this.validateField(this.post.body, "Body")
+      ) {
+        return true;
+      } else {
+        this.validateField(this.user.email, "Email");
+        this.validateField(this.post.title, "Title");
+        this.validateField(this.post.body, "Body");
+        return false;
+      }
+    },
+
     getUsers() {
       Users.list().then((response) => {
         this.users = response.data;
@@ -95,9 +120,14 @@ export default {
     },
 
     create() {
-      Posts.create(this.post).then((response) => {
-        this.$router.push("/posts");
-      });
+      if (this.validateFields()) {
+        this.getUserId(this.user.email);
+        Posts.create(this.post).then((response) => {
+          this.$router.push("/posts");
+        });
+      } else {
+        alert("Please fill in the required fields.");
+      }
     },
 
     validUserStatus(user) {
@@ -110,3 +140,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.validation {
+  color: red;
+  margin: 0;
+}
+</style>
