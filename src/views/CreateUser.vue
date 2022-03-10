@@ -39,24 +39,14 @@
         </div>
       </div>
 
-      <p class="validation" v-if="this.user.email !== '' && !this.validateEmail(this.user.email)">
-        Invalid Email 
-      </p>
+      <p class="validation" v-if="this.user.email !== '' && !this.validateEmail(this.user.email)"> Invalid Email </p>
 
-      <p class="validation" v-if="this.validation[0] !== ''">
-        {{ validation[0] }}
-      </p>
-      <p class="validation" v-if="this.validation.lenght !== 0">
-        {{ validation[1] }}
-      </p>
-      <p class="validation" v-if="this.validation.lenght !== 0">
-        {{ validation[2] }}
-      </p>
-      <p class="validation" v-if="this.validation.lenght !== 0">
-        {{ validation[3] }}
-      </p>
+      <p class="validation" v-if="this.validation[0] !== ''">{{ validation[0] }}</p>
+      <p class="validation" v-if="this.validation.lenght !== 0">{{ validation[1] }}</p>
+      <p class="validation" v-if="this.validation.lenght !== 0">{{ validation[2] }}</p>
+      <p class="validation" v-if="this.validation.lenght !== 0">{{ validation[3] }}</p>
 
-      <Button value="Submit" @click="create" />
+      <Button value="Submit" @click="create()" />
     </form>
   </div>
 </template>
@@ -83,19 +73,8 @@ export default {
   },
 
   methods: {
-    create() {
-      if (this.validateFields() && this.validateEmail() ) {
-        Users.create(this.user).then((response) => {
-          alert("User created successfully!");
-          this.$router.go();
-        });
-      } else {
-        console.log(this.validation);
-        alert("Please fill in the required fields.");
-      }
-    },
-
-    validateField(field, name) {
+ 
+ validateField(field, name) {
       if (field == "") {
         this.validation.push(`The ${name} cant not be empty.`);
         return false;
@@ -123,6 +102,17 @@ export default {
     validateEmail(email) {
       var re = /\S+@\S+\.\S+/;
       return re.test(email);
+    },
+
+    create() {
+      if (this.validateFields() && this.validateEmail(this.user.email) ) {
+        Users.create(this.user).then((response) => {
+          alert("User created successfully!");
+          this.$router.go();
+        });
+      } else {
+        alert("Please fill in the required fields.");
+      }
     },
   },
 };

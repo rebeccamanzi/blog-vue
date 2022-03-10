@@ -114,7 +114,6 @@ export default {
       } catch (e) {
         if (e instanceof TypeError) {
           alert("User does not exist.");
-          this.$router.go();
         } else {
           console.log(e);
         }
