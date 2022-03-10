@@ -17,15 +17,6 @@
     </div>
     <form class="col s12">
       <p>New Comment:</p>
-      <!-- <div class="input-field col s6">
-        <input
-          placeholder="Name"
-          id="name"
-          type="text"
-          class="validate"
-          v-model="comment.name"
-        />
-      </div> -->
       <div class="input-field col s6">
         <input
           placeholder="Email"
@@ -44,10 +35,14 @@
           v-model="comment.body"
         />
       </div>
+
+      <p class="validation" v-if="validation.lenght !== 0">{{ validation[0] }}</p>
+
       <Button
         value="Comment"
         @click="
           getUserInfo(comment.email);
+          validateField(comment.email, 'Email')
           createComment();
         "
       />
@@ -64,7 +59,7 @@ import Button from "../components/Button.vue";
 import Users from "../services/users.js";
 
 export default {
-  name: 'PostDetails',
+  name: "PostDetails",
   components: { Title, CommentCard, Button },
 
   data() {
@@ -87,6 +82,7 @@ export default {
         title: "",
         body: "",
       },
+      validation: [],
     };
   },
 
@@ -112,20 +108,37 @@ export default {
 
     getUserInfo(email) {
       const userInfo = this.users.filter((u) => u.email == email);
-      this.user.status = userInfo[0].status;
-      this.comment.name = userInfo[0].name;
+      try {
+        this.user.status = userInfo[0].status;
+        this.comment.name = userInfo[0].name;
+      } catch (e) {
+        if (e instanceof TypeError) {
+          alert("User does not exist.");
+          this.$router.go();
+        } else {
+          console.log(e);
+        }
+      }
     },
 
     createComment() {
-      if (this.user.status == "active") {
+      if (this.user.status == "active" && this.validateField(this.comment.body, 'Body') == true) {
         Comments.create(this.comment).then((response) => {
           alert("Comment created successfully!");
           this.$router.go();
         });
-      } else {
+      } else if (this.user.status == "inactive") {
         alert("You cant create a comment because your status is inactive.");
         this.$router.go();
       }
+    },
+
+    validateField(field, name) {
+      if (field == "") {
+        alert(`The ${name} cant not be empty.`)
+        this.validation.push(`The ${name} cant not be empty.`);
+        return false;
+      } else return true;
     },
   },
 
@@ -138,3 +151,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.validation {
+  color: red;
+  margin: 0;
+}
+</style>
